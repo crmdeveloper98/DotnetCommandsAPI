@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using src.DotnetCommandsAPI.Data;
 
 namespace DotnetCommandsAPI
 {
@@ -13,6 +14,8 @@ namespace DotnetCommandsAPI
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IDotnetCommandsAPIRepository, MockDotnetCommandsAPIRepository>();
+
             services.AddControllers();
 
             // Register the Swagger generator, defining 1 or more Swagger documents
